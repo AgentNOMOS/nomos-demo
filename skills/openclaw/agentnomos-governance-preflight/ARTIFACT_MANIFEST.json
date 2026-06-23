@@ -10,11 +10,15 @@
       "bytes": 7586,
       "lines": 251,
       "byte_identical_to_published_clawhub_version": true,
-      "content_import_status": "pending_exact_byte_transfer"
+      "content_import_status": "verified_exact"
     }
   ],
   "moderation": null,
   "public_mode": "read-only advisory",
   "execution_enabled": false,
-  "note": "The full published SHA-256 is verified. Add SKILL.md only from an exact file upload or no-wrap base64 transfer, then independently verify this hash before release. Chat-rendered text is not an exact-byte transport because line wrapping changed its size and line count."
+  "verification": {
+    "verified_at": "2026-06-23",
+    "method": "Exact UTF-8 reconstruction verified against the sealed server audit using SHA-256, byte count and line count before commit.",
+    "audit_report_sha256": "68a1ff9ba8ddae083772e0831df694b727e37009184118b51e908b71b3d4afc3"
+  }
 }
