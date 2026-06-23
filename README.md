@@ -12,22 +12,33 @@ This repository is the public implementation and demonstration layer. It does no
 - Mode: read-only and advisory
 - Decisions: `ADVISORY_ALLOW`, `HOLD_FOR_REVIEW`, `BLOCK`
 - Execution: never performed by the public skill
+- Published skill SHA-256: `fb42f45dd1994c1ae62bc543cc2227c552074c2681a51f75980b1815942b430e`
 - ClawHub security audit: passed
 
-Install from ClawHub:
+## Install from ClawHub
+
+Install the official ClawHub CLI:
 
 ```bash
-openclaw skills install @agentnomos/agentnomos-governance-preflight
+npm i -g clawhub
 ```
+
+Then install the skill in your agent workspace:
+
+```bash
+clawhub install @agentnomos/agentnomos-governance-preflight
+```
+
+The official ClawHub CLI uses the `clawhub install @owner/slug` form. The installed skill remains advisory and does not execute actions.
 
 ## What this repository contains
 
 ```text
-skills/       Installable public agent skills
+skills/       Installable public agent skills and artifact manifests
 schemas/      Machine-readable request and result contracts
-examples/     Synthetic governance scenarios and outputs
-docs/         Decision, authority, evidence and threat models
-tests/        Public-safe deterministic contract cases
+examples/     Synthetic governance scenarios and expected outputs
+docs/         Capability, decision, authority, evidence, terminology and threat models
+tests/        Public-safe deterministic contract and repository-integrity cases
 ```
 
 ## Core decision flow
@@ -56,9 +67,16 @@ Input:
   "actor": "invoice-agent",
   "action": "approve payment",
   "target": "invoice-4821",
+  "declared_authority": null,
+  "scope": {
+    "amount": {"currency": "EUR", "value": 4200},
+    "environment": "production"
+  },
   "environment": "production",
-  "amount": {"currency": "EUR", "value": 4200},
-  "declared_authority": null
+  "external_effect": true,
+  "reversibility": "partially_reversible",
+  "financial_effect": "value_transfer",
+  "data_sensitivity": "internal"
 }
 ```
 
@@ -87,6 +105,15 @@ The public kit must not:
 - claim private production capabilities are publicly available
 
 See [`SECURITY.md`](SECURITY.md) for reporting and disclosure guidance.
+
+## Documentation
+
+- [`docs/public-capability-truth.md`](docs/public-capability-truth.md)
+- [`docs/decision-model.md`](docs/decision-model.md)
+- [`docs/authority-model.md`](docs/authority-model.md)
+- [`docs/evidence-model.md`](docs/evidence-model.md)
+- [`docs/public-terms.md`](docs/public-terms.md)
+- [`docs/threat-model.md`](docs/threat-model.md)
 
 ## Public surfaces
 
