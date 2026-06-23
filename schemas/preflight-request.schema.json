@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentnomos.com/schemas/preflight-request.schema.json",
+  "title": "AgentNOMOS Governance Preflight Request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["actor", "action", "target"],
+  "properties": {
+    "actor": {"type": "string", "minLength": 1, "maxLength": 200},
+    "action": {"type": "string", "minLength": 1, "maxLength": 500},
+    "target": {"type": "string", "minLength": 1, "maxLength": 500},
+    "declared_authority": {"type": ["string", "null"], "maxLength": 1000},
+    "scope": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Public-safe limits on amount, environment, duration, records, tools or recipients."
+    },
+    "environment": {
+      "type": "string",
+      "enum": ["local", "development", "test", "staging", "production", "unknown"]
+    },
+    "external_effect": {"type": ["boolean", "null"]},
+    "reversibility": {
+      "type": "string",
+      "enum": ["reversible", "partially_reversible", "irreversible", "unknown"]
+    },
+    "financial_effect": {
+      "type": "string",
+      "enum": ["none", "quote_only", "value_transfer", "unknown"]
+    },
+    "data_sensitivity": {
+      "type": "string",
+      "enum": ["public", "internal", "confidential", "personal", "regulated", "secret", "unknown"]
+    },
+    "policy_context": {"type": ["string", "null"], "maxLength": 2000},
+    "required_evidence": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 500},
+      "maxItems": 50
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 500},
+      "maxItems": 50
+    }
+  }
+}
