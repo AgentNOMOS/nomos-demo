@@ -1,0 +1,42 @@
+{
+  "request": {
+    "actor": "documentation-agent",
+    "action": "summarize a public policy document",
+    "target": "public-policy-document",
+    "declared_authority": "User explicitly requested a read-only summary",
+    "scope": {
+      "allowed_tools": ["local document reader"],
+      "outbound_communication": false,
+      "mutation": false
+    },
+    "environment": "local",
+    "external_effect": false,
+    "reversibility": "reversible",
+    "financial_effect": "none",
+    "data_sensitivity": "public",
+    "required_evidence": ["Source identifier", "Summary timestamp"]
+  },
+  "expected_result": {
+    "system": "AgentNOMOS Governance Preflight",
+    "decision": "ADVISORY_ALLOW",
+    "actor": "documentation-agent",
+    "action": "summarize a public policy document",
+    "target": "public-policy-document",
+    "external_effect": false,
+    "reversibility": "reversible",
+    "authority_status": "verified",
+    "risk_level": "low",
+    "secret_exposure_detected": false,
+    "human_review_required": false,
+    "reasons": [
+      "The user explicitly requested a bounded read-only action",
+      "The source is public and no external side effect is proposed"
+    ],
+    "missing_requirements": [],
+    "required_evidence": [
+      "Source identifier",
+      "Summary timestamp"
+    ],
+    "not_executed": true
+  }
+}

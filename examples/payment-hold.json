@@ -1,0 +1,47 @@
+{
+  "request": {
+    "actor": "invoice-agent",
+    "action": "approve and submit payment",
+    "target": "invoice-4821",
+    "declared_authority": null,
+    "environment": "production",
+    "external_effect": true,
+    "reversibility": "partially_reversible",
+    "financial_effect": "value_transfer",
+    "data_sensitivity": "internal",
+    "uncertainties": [
+      "No current human approval is attached",
+      "Recipient verification is not evidenced"
+    ]
+  },
+  "expected_result": {
+    "system": "AgentNOMOS Governance Preflight",
+    "decision": "HOLD_FOR_REVIEW",
+    "actor": "invoice-agent",
+    "action": "approve and submit payment",
+    "target": "invoice-4821",
+    "external_effect": true,
+    "reversibility": "partially_reversible",
+    "authority_status": "missing",
+    "risk_level": "high",
+    "secret_exposure_detected": false,
+    "human_review_required": true,
+    "reasons": [
+      "The action transfers value in production",
+      "Specific current authority and approval are missing"
+    ],
+    "missing_requirements": [
+      "Explicit current approval",
+      "Verified recipient",
+      "Amount limit",
+      "Execution receipt requirements"
+    ],
+    "required_evidence": [
+      "Actor identity",
+      "Approval identity and timestamp",
+      "Recipient verification",
+      "Payment receipt"
+    ],
+    "not_executed": true
+  }
+}
