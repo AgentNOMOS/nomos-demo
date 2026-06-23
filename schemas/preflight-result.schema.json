@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentnomos.com/schemas/preflight-result.schema.json",
+  "title": "AgentNOMOS Governance Preflight Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "system",
+    "decision",
+    "actor",
+    "action",
+    "target",
+    "external_effect",
+    "reversibility",
+    "authority_status",
+    "risk_level",
+    "secret_exposure_detected",
+    "human_review_required",
+    "reasons",
+    "missing_requirements",
+    "required_evidence",
+    "not_executed"
+  ],
+  "properties": {
+    "system": {"const": "AgentNOMOS Governance Preflight"},
+    "decision": {"enum": ["ADVISORY_ALLOW", "HOLD_FOR_REVIEW", "BLOCK"]},
+    "actor": {"type": "string", "minLength": 1},
+    "action": {"type": "string", "minLength": 1},
+    "target": {"type": "string", "minLength": 1},
+    "external_effect": {"type": "boolean"},
+    "reversibility": {"enum": ["reversible", "partially_reversible", "irreversible", "unknown"]},
+    "authority_status": {"enum": ["verified", "missing", "ambiguous", "out_of_scope"]},
+    "risk_level": {"enum": ["low", "medium", "high", "unknown"]},
+    "secret_exposure_detected": {"type": "boolean"},
+    "human_review_required": {"type": "boolean"},
+    "reasons": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "missing_requirements": {"type": "array", "items": {"type": "string"}},
+    "required_evidence": {"type": "array", "items": {"type": "string"}},
+    "not_executed": {"const": true}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"decision": {"const": "ADVISORY_ALLOW"}}},
+      "then": {
+        "properties": {
+          "authority_status": {"const": "verified"},
+          "risk_level": {"const": "low"},
+          "secret_exposure_detected": {"const": false},
+          "human_review_required": {"const": false}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"secret_exposure_detected": {"const": true}}},
+      "then": {"properties": {"decision": {"const": "BLOCK"}}}
+    }
+  ]
+}
