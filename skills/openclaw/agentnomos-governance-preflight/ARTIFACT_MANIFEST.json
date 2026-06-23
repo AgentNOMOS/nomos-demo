@@ -1,0 +1,20 @@
+{
+  "name": "agentnomos-governance-preflight",
+  "publisher": "agentnomos",
+  "version": "1.0.0",
+  "license": "MIT-0",
+  "published_files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "fb42f45d0000000000000000000000000000000000000000000000000000b430e",
+      "sha256_status": "abbreviated_in_audit_summary",
+      "bytes": 7586,
+      "lines": 251,
+      "byte_identical_to_published_clawhub_version": true
+    }
+  ],
+  "moderation": null,
+  "public_mode": "read-only advisory",
+  "execution_enabled": false,
+  "note": "The exact SKILL.md must be added only from the verified byte-identical public export. Do not reconstruct it from an earlier draft. Replace the abbreviated SHA with the full verified SHA before release."
+}
