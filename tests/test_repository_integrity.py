@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+THIS_FILE = Path(__file__).resolve()
 SKILL_DIR = ROOT / "skills" / "openclaw" / "agentnomos-governance-preflight"
 SKILL_PATH = SKILL_DIR / "SKILL.md"
 MANIFEST_PATH = SKILL_DIR / "ARTIFACT_MANIFEST.json"
@@ -74,6 +75,8 @@ class RepositoryIntegrityTest(unittest.TestCase):
         suffixes = {".md", ".json", ".py", ".yml", ".yaml"}
         for path in ROOT.rglob("*"):
             if not path.is_file() or path.suffix.lower() not in suffixes:
+                continue
+            if path.resolve() == THIS_FILE:
                 continue
             text = path.read_text(encoding="utf-8")
             for marker in forbidden:
