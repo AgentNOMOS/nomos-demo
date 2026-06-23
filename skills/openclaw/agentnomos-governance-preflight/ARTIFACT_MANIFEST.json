@@ -6,8 +6,9 @@
   "published_files": [
     {
       "path": "SKILL.md",
-      "sha256": "fb42f45d0000000000000000000000000000000000000000000000000000b430e",
-      "sha256_status": "abbreviated_in_audit_summary",
+      "sha256_prefix": "fb42f45d",
+      "sha256_suffix": "b430e",
+      "full_sha256_status": "pending_exact_public_export",
       "bytes": 7586,
       "lines": 251,
       "byte_identical_to_published_clawhub_version": true
@@ -16,5 +17,5 @@
   "moderation": null,
   "public_mode": "read-only advisory",
   "execution_enabled": false,
-  "note": "The exact SKILL.md must be added only from the verified byte-identical public export. Do not reconstruct it from an earlier draft. Replace the abbreviated SHA with the full verified SHA before release."
+  "note": "The audit summary supplied only an abbreviated SHA-256. Add the exact verified SKILL.md and full SHA-256 from the public export before release. Do not reconstruct the file from an earlier draft."
 }
