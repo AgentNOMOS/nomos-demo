@@ -16,6 +16,7 @@ The repository does not yet have a tagged GitHub release.
 - Security and contribution policies
 - Contract and repository-integrity tests
 - GitHub Actions workflow for public tests
+- Repository-wide MIT-0 license
 
 ### Changed
 
