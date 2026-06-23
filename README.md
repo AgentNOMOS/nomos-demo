@@ -14,6 +14,7 @@ This repository is the public implementation and demonstration layer. It does no
 - Execution: never performed by the public skill
 - Published skill SHA-256: `fb42f45dd1994c1ae62bc543cc2227c552074c2681a51f75980b1815942b430e`
 - ClawHub security audit: passed
+- Repository license: MIT-0
 
 ## Install from ClawHub
 
@@ -127,4 +128,6 @@ Only synthetic, public or explicitly approved material belongs here. Server path
 
 ## License
 
-The OpenClaw skill published through ClawHub is distributed under MIT-0. Repository-wide licensing will be finalized before the first tagged GitHub release.
+This repository is licensed under the [MIT No Attribution License](LICENSE) (`MIT-0`). It may be used, copied, modified, merged, published, distributed, sublicensed and sold without an attribution requirement.
+
+The public license does not publish or grant access to private AgentNOMOS infrastructure, credentials, customer data, internal policies, hosted services or non-public execution capabilities.
